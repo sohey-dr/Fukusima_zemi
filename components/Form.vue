@@ -29,33 +29,6 @@
           />
         </div>
         <div class="mb-6">
-          <label
-            class="block text-gray-700 text-sm font-bold mb-2"
-            for="picture_url"
-          >
-            写真のURL
-          </label>
-          <input
-            class="
-              shadow
-              appearance-none
-              border
-              rounded
-              w-full
-              py-2
-              px-3
-              text-gray-700
-              mb-3
-              leading-tight
-              focus:outline-none
-              focus:shadow-outline
-            "
-            id="picture_url"
-            type="picture_url"
-            placeholder="https:picture.com"
-          />
-        </div>
-        <div class="mb-6">
           <UploadInput />
         </div>
         <div class="flex items-center justify-between">
