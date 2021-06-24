@@ -55,6 +55,9 @@
             placeholder="https:picture.com"
           />
         </div>
+        <div class="mb-6">
+          <UploadInput />
+        </div>
         <div class="flex items-center justify-between">
           <button
             class="
