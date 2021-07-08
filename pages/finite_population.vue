@@ -16,3 +16,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  data: {
+    populationNumber: null
+  },
+  methods: {
+    calculation({ populationNumber }) {
+      var f_child = 0.05 / 1.96
+      var s_child = (populationNumber - 1) / 0.25
+
+      var children = f_child * f_child * s_child + 1
+      var answer = populationNumber / children
+
+      window.alert(Math.round(answer) + "人(個)程度必要です")
+    }
+  }
+}
+</script>
