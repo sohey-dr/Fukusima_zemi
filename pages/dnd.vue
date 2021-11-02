@@ -16,7 +16,7 @@
         </div>
       </draggable>
     </div>
-    <div>
+    <div class="mb-5">
       <h3>実行するプログラム</h3>
       <draggable
         v-model="itemsB"
@@ -26,6 +26,19 @@
         :options="options"
       >
         <div class="item" v-for="item in itemsB" :key="item.id">
+          {{ item.name }}
+        </div>
+      </draggable>
+    </div>
+    <div>
+      <h3>これより下にドロップで削除</h3>
+      <draggable
+        group="myGroup"
+        @start="drag = true"
+        @end="drag = false"
+        :options="options"
+      >
+        <div class="item" v-for="e in trash" :key="e.id">
           {{ item.name }}
         </div>
       </draggable>
@@ -46,7 +59,6 @@ export default {
       options: {
         group: 'myGroup',
         animation: 200,
-        pull: false
       },
       itemsA: [
         { id: 1, name: '前進' },
@@ -58,13 +70,14 @@ export default {
     }
   },
   methods: {
-    onRemove (e) {
+    onRemove () {
       this.itemsA = [
         { id: 1, name: '前進' },
         { id: 2, name: '右を見る' },
         { id: 3, name: '左を見る' },
         { id: 4, name: '後進' },
       ];
+      console.log(this.itemsB);
     },
   },
 }
