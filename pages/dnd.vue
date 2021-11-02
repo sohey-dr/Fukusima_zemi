@@ -5,7 +5,9 @@
       <draggable
         v-model="itemsA"
         group="myGroup"
-        @start="drag = true"
+        @remove="onRemove"
+        @sort="onSort"
+        @start="drag = false"
         @end="drag = false"
         :options="options"
       >
@@ -59,6 +61,18 @@ export default {
         { id: 9, name: 'name09' },
         { id: 10, name: 'name10' },
       ],
+    }
+  },
+  methods: {
+    onRemove: function(e) {
+      if (this.itemsA.length === 5) {
+        // this.itemsA.push({
+        //   id: e.draggedContext.element.id,
+        //   name: e.draggedContext.element.name,
+        // })
+      }
+      console.log(itemsA)
+      return true
     }
   },
 }
