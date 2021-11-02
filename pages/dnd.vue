@@ -5,8 +5,8 @@
       <draggable
         v-model="itemsA"
         group="myGroup"
+        :sort="false"
         @remove="onRemove"
-        @sort="onSort"
         @start="drag = false"
         @end="drag = false"
         :options="options"
@@ -46,34 +46,26 @@ export default {
       options: {
         group: 'myGroup',
         animation: 200,
+        pull: false
       },
       itemsA: [
-        { id: 1, name: 'name01' },
-        { id: 2, name: 'name02' },
-        { id: 3, name: 'name03' },
-        { id: 4, name: 'name04' },
-        { id: 5, name: 'name05' },
+        { id: 1, name: '前進' },
+        { id: 2, name: '右を見る' },
+        { id: 3, name: '左を見る' },
+        { id: 4, name: '後進' },
       ],
-      itemsB: [
-        { id: 6, name: 'name06' },
-        { id: 7, name: 'name07' },
-        { id: 8, name: 'name08' },
-        { id: 9, name: 'name09' },
-        { id: 10, name: 'name10' },
-      ],
+      itemsB: [],
     }
   },
   methods: {
-    onRemove: function(e) {
-      if (this.itemsA.length === 5) {
-        // this.itemsA.push({
-        //   id: e.draggedContext.element.id,
-        //   name: e.draggedContext.element.name,
-        // })
-      }
-      console.log(itemsA)
-      return true
-    }
+    onRemove (e) {
+      this.itemsA = [
+        { id: 1, name: '前進' },
+        { id: 2, name: '右を見る' },
+        { id: 3, name: '左を見る' },
+        { id: 4, name: '後進' },
+      ];
+    },
   },
 }
 </script>
