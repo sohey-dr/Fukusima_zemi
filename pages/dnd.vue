@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h3>グループA</h3>
+      <h3>選択肢</h3>
       <draggable
         v-model="itemsA"
         group="myGroup"
@@ -15,7 +15,7 @@
       </draggable>
     </div>
     <div>
-      <h3>グループB</h3>
+      <h3>実行するプログラム</h3>
       <draggable
         v-model="itemsB"
         group="myGroup"
