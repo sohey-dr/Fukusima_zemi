@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
-    <Nuxt />
+    <main class="wrapper-main">
+      <Nuxt />
+    </main>
     <Footer />
   </div>
 </template>
@@ -64,5 +66,20 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+/* 以下、カスタムで追加している */
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.button--grey:hover {
+  color: #fff;
+  background-color: #35495e;
+}
+.wrapper-main {
+  margin: 80px 0;
 }
 </style>
