@@ -39,7 +39,6 @@
         :options="options"
       >
         <div class="item" v-for="e in trash" :key="e.id">
-          {{ item.name }}
         </div>
       </draggable>
     </div>
@@ -75,7 +74,11 @@ export default {
     }
   },
   mounted() {
-    this.itemsB = JSON.parse(sessionStorage.getItem("itemsB"))
+    if (!localStorage.getItem("itemsB")) {
+      localStorage.setItem("itemsB", JSON.stringify([]));
+      this.itemsB = [];
+    }
+    this.itemsB = JSON.parse(localStorage.getItem("itemsB"))
   },
   methods: {
     onRemove () {
@@ -87,7 +90,7 @@ export default {
       ];
     },
     saveItem () {
-      sessionStorage.setItem("itemsB", JSON.stringify(this.itemsB));
+      localStorage.setItem("itemsB", JSON.stringify(this.itemsB));
       alert('保存しました');
     },
   },
