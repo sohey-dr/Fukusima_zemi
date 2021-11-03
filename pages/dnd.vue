@@ -30,8 +30,8 @@
         </div>
       </draggable>
     </div>
-    <div>
-      <h3>これより下にドロップで削除</h3>
+    <div class="border border-indigo-600 pb-5">
+      <h3>この中にドロップで削除</h3>
       <draggable
         group="myGroup"
         @start="drag = true"
@@ -39,9 +39,13 @@
         :options="options"
       >
         <div class="item" v-for="e in trash" :key="e.id">
-          {{ item.name }}
         </div>
       </draggable>
+    </div>
+    <div class="mx-auto text-center my-12">
+      <button @click="saveItem" class="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded">
+        保存
+      </button>
     </div>
   </div>
 </template>
@@ -69,6 +73,13 @@ export default {
       itemsB: [],
     }
   },
+  mounted() {
+    if (!localStorage.getItem("itemsB")) {
+      localStorage.setItem("itemsB", JSON.stringify([]));
+      this.itemsB = [];
+    }
+    this.itemsB = JSON.parse(localStorage.getItem("itemsB"))
+  },
   methods: {
     onRemove () {
       this.itemsA = [
@@ -77,7 +88,10 @@ export default {
         { id: 3, name: '左を見る' },
         { id: 4, name: '後進' },
       ];
-      console.log(this.itemsB);
+    },
+    saveItem () {
+      localStorage.setItem("itemsB", JSON.stringify(this.itemsB));
+      alert('保存しました');
     },
   },
 }
