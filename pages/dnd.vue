@@ -47,17 +47,16 @@
         保存
       </button>
     </div>
+    <FileDownloadButton :programs="itemsB"/>
   </div>
 </template>
 
 <script>
 import draggable from 'vuedraggable'
+import FileDownloadButton from '@/components/FileDownloadButton'
 
 export default {
   name: 'dnd',
-
-  components: { draggable },
-
   data() {
     return {
       options: {
@@ -66,12 +65,16 @@ export default {
       },
       itemsA: [
         { id: 1, name: '前進' },
-        { id: 2, name: '右を見る' },
-        { id: 3, name: '左を見る' },
+        { id: 2, name: '右進' },
+        { id: 3, name: '左進' },
         { id: 4, name: '後進' },
       ],
       itemsB: [],
     }
+  },
+  components: {
+    draggable,
+    FileDownloadButton
   },
   mounted() {
     if (!localStorage.getItem("itemsB")) {
@@ -84,8 +87,8 @@ export default {
     onRemove () {
       this.itemsA = [
         { id: 1, name: '前進' },
-        { id: 2, name: '右を見る' },
-        { id: 3, name: '左を見る' },
+        { id: 2, name: '右進' },
+        { id: 3, name: '左進' },
         { id: 4, name: '後進' },
       ];
     },
