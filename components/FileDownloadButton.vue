@@ -8,6 +8,7 @@
 export default {
   methods: {
     async downloadFile() {
+      // TODO: エンドポイントのURLを修正する
       await this.$axios.$post("http://localhost:8080/", { responseType: 'blob' })
         .then(response => {
           console.log(response);

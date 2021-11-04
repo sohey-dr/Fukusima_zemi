@@ -47,11 +47,13 @@
         保存
       </button>
     </div>
+    <FileDownloadButton />
   </div>
 </template>
 
 <script>
 import draggable from 'vuedraggable'
+import FileDownloadButton from '@/components/FileDownloadButton'
 
 export default {
   name: 'dnd',
@@ -72,6 +74,9 @@ export default {
       ],
       itemsB: [],
     }
+  },
+  components: {
+    FileDownloadButton,
   },
   mounted() {
     if (!localStorage.getItem("itemsB")) {
